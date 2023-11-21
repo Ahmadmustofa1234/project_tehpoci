@@ -500,6 +500,69 @@
                         </li>
 
                         <li class="side-nav-item">
+                            <a href="index.html" class="side-nav-link">
+                                <i class="ri-user-line"></i>
+                                <span class="badge bg-success float-end"></span>
+                                <span> Profile </span>
+                            </a>
+                        </li>
+
+                        <div class="collapse" id="sidebarPages">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="pages-starter.html">Manajemen Produk</a>
+                                    </li>
+                                    <li>
+                                        <a href= >Pemesanan</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages-profile.html">Pelanggan</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages-profile.html">Pengaturan Toko</a>
+                                        {{-- Atur informasi dasar toko seperti nama, deskripsi, dan alamat.
+                                            Konfigurasi pengaturan pengiriman dan pajak, Kelola metode pembayaran dan opsi pengiriman. --}}
+                                    </li>
+                                    <li>
+                                        <a href="pages-invoice.html"> Analisis dan Laporan</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages-invoice.html">Invoice</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages-faq.html">FAQ</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="index.html" class="side-nav-link">
+                                <i class="ri-price-tag-3-line"></i>
+                                <span class="badge bg-success float-end"></span>
+                                <span> Promo </span>
+                            </a>
+                        </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="index.html" class="side-nav-link">
+                                <i class="ri-settings-3-line"></i>
+                                <span class="badge bg-success float-end"></span>
+                                <span> Pengaturan </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="index.html" class="side-nav-link">
+                                <i class="ri-settings-3-line"></i>
+                                <span class="badge bg-success float-end"></span>
+                                <span> Payment link </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
                                 <i class="ri-layout-line"></i>
                                 <span class="badge bg-warning float-end">New</span>
@@ -529,6 +592,9 @@
                             </div>
                         </li>
 
+
+
+
                     <!--- End Sidemenu -->
 
                     <div class="clearfix"></div>
@@ -540,7 +606,113 @@
             <!-- Start Page Content here -->
             <!-- ============================================================== -->
 
-           
+            <div class="content-page">
+                <div class="content">
+
+                  <!-- Start Content-->
+                  <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Velonic</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Manajemen</a></li>
+                                        <li class="breadcrumb-item active">Data Tables</li>
+                                    </ol>
+                                </div>
+                                <h4 class="page-title">Data Tables</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+            <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  background-color: #f4f4f4;
+                }
+            
+                header {
+                  background-color: #333;
+                  color: white;
+                  text-align: center;
+                  padding: 1em;
+                }
+            
+                section {
+                  margin: 20px;
+                }
+            
+                table {
+                  width: 100%;
+                  border-collapse: collapse;
+                  margin-top: 20px;
+                }
+            
+                th, td {
+                  border: 1px solid #ddd;
+                  padding: 8px;
+                  text-align: left;
+                }
+            
+                th {
+                  background-color: #333;
+                  color: white;
+                }
+            
+                .add-product-btn {
+                  background-color: #4CAF50;
+                  color: white;
+                  padding: 10px 20px;
+                  text-align: center;
+                  text-decoration: none;
+                  display: inline-block;
+                  font-size: 16px;
+                  margin-bottom: 20px;
+                  cursor: pointer;
+                }
+              </style>
+            </head>
+            <body>
+              <header>
+                <h1>Manajemen Produk Teh Poci - Admin</h1>
+              </header>
+            
+              <section>
+                <a href="#" class="add-product-btn">Tambah Produk</a>
+            
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nama Produk</th>
+                      <th>Harga</th>
+                      <th>Stok</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Data produk akan ditampilkan di sini -->
+                    <tr>
+                      <td>1</td>
+                      <td>Teh Poci Hijau</td>
+                      <td>Rp 20,000</td>
+                      <td>50</td>
+                      <td>
+                        <button>Edit</button>
+                        <button>Hapus</button>
+                      </td>
+                    </tr>
+                    <!-- Data produk lainnya -->
+                  </tbody>
+                </table>
+              </section>
+            </body>
+            </html>
 
                <!-- ============================================================== -->
             <!-- End Page content -->

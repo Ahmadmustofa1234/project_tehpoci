@@ -500,6 +500,69 @@
                         </li>
 
                         <li class="side-nav-item">
+                            <a href="index.html" class="side-nav-link">
+                                <i class="ri-user-line"></i>
+                                <span class="badge bg-success float-end"></span>
+                                <span> Profile </span>
+                            </a>
+                        </li>
+
+                        <div class="collapse" id="sidebarPages">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="pages-starter.html">Manajemen Produk</a>
+                                    </li>
+                                    <li>
+                                        <a href= >Pemesanan</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages-profile.html">Pelanggan</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages-profile.html">Pengaturan Toko</a>
+                                        {{-- Atur informasi dasar toko seperti nama, deskripsi, dan alamat.
+                                            Konfigurasi pengaturan pengiriman dan pajak, Kelola metode pembayaran dan opsi pengiriman. --}}
+                                    </li>
+                                    <li>
+                                        <a href="pages-invoice.html"> Analisis dan Laporan</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages-invoice.html">Invoice</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages-faq.html">FAQ</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="index.html" class="side-nav-link">
+                                <i class="ri-price-tag-3-line"></i>
+                                <span class="badge bg-success float-end"></span>
+                                <span> Promo </span>
+                            </a>
+                        </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="index.html" class="side-nav-link">
+                                <i class="ri-settings-3-line"></i>
+                                <span class="badge bg-success float-end"></span>
+                                <span> Pengaturan </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="index.html" class="side-nav-link">
+                                <i class="ri-settings-3-line"></i>
+                                <span class="badge bg-success float-end"></span>
+                                <span> Payment link </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
                                 <i class="ri-layout-line"></i>
                                 <span class="badge bg-warning float-end">New</span>
@@ -529,6 +592,9 @@
                             </div>
                         </li>
 
+
+
+
                     <!--- End Sidemenu -->
 
                     <div class="clearfix"></div>
@@ -536,9 +602,9 @@
             </div>
             <!-- ========== Left Sidebar End ========== -->
 
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
 
         <div class="content-page">
             <div class="content">

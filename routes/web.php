@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/', function () {
+    return view('layouts.pages.profile');
+});
+
+
+Route::get('/', function () {
+    return view('layouts.pages.pemesanan');
+});
