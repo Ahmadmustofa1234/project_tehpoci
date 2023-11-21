@@ -13,16 +13,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+// Route::get('/', function () {
+//     return view('layouts.pages.profile');
+// });
+
+
+// Route::get('/', function () {
+//     return view('layouts.pages.manajemen');
+// });
+
+// Route::get('/', function () {
+//     return view('Admin\partials\layouts\main');
+// });
+
+Route::get('/master', function () {
+    return view('layouts.master');
 });
 
+// Route::get('/manajemen', function () {
+//     return view('Admin\partials\layouts\main');
+// });
 
-Route::get('/', function () {
-    return view('layouts.pages.profile');
-});
+//halaman dashboard
+Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 
+//halaman manajemen
+Route::get('/manajemen', [App\Http\Controllers\ManajemenController::class, 'index'])->name('manajemen.index');
 
-Route::get('/', function () {
-    return view('layouts.pages.pemesanan');
-});
+//halaman pelanggan
+Route::get('/pelanggan', [App\Http\Controllers\PelangganController::class, 'index'])->name('pelanggan.index');
+
+//halaman pemesanan
+Route::get('/pemesanan', [App\Http\Controllers\PemesananController::class, 'index'])->name('pemesanan.index');
+
+//halaman laporan
+Route::get('/laporan', [App\Http\Controllers\LaporanController::class, 'index'])->name('laporan.index');
+
+//halaman promo
+Route::get('/promo', [App\Http\Controllers\PromoController::class, 'index'])->name('promo.index');
