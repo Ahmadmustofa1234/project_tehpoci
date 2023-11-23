@@ -402,6 +402,18 @@
                                 </a>
 
                                 <!-- item-->
+                                <a href="pages-faq.html" class="dropdown-item">
+                                    <i class="ri-customer-service-2-line fs-18 align-middle me-1"></i>
+                                    <span>Support</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                    <i class="ri-lock-password-line fs-18 align-middle me-1"></i>
+                                    <span>Layar Penutup</span>
+                                </a>
+
+                                <!-- item-->
                                 <a href="auth-logout-2.html" class="dropdown-item">
                                     <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
                                     <span>Keluar</span>
@@ -452,7 +464,7 @@
                             </a>
                         </li>
 
-                        {{-- <li class="side-nav-item">
+                        <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
                                 <i class="ri-pages-line"></i>
                                 <span> Pages </span>
@@ -473,44 +485,28 @@
                                         <a href="pages-profile.html">Pengaturan Toko</a>
                                         {{-- Atur informasi dasar toko seperti nama, deskripsi, dan alamat.
                                             Konfigurasi pengaturan pengiriman dan pajak, Kelola metode pembayaran dan opsi pengiriman. --}}
-                                    {{-- </li>
+                                    </li>
                                     <li>
                                         <a href="pages-invoice.html"> Analisis dan Laporan</a>
                                     </li>
+                                    <li>
+                                        <a href="pages-invoice.html">Invoice</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages-faq.html">FAQ</a>
+                                    </li>
+                                </ul>
                             </div>
-                        </li> --}} 
-
-                        <li class="side-nav-item">
-                            <a href="index.html" class="side-nav-link">
-                                <i class=" ri-briefcase-4-line"></i>
-                                <span class="badge bg-success float-end"></span>
-                                <span> Manajemen Produk </span>
-                            </a>
                         </li>
 
                         <li class="side-nav-item">
                             <a href="index.html" class="side-nav-link">
-                                <i class="ri-contacts-book-2-line"></i>
+                                <i class="ri-user-line"></i>
                                 <span class="badge bg-success float-end"></span>
-                                <span> Pelanggan </span>
+                                <span> Profile </span>
                             </a>
                         </li>
 
-                        <li class="side-nav-item">
-                            <a href="index.html" class="side-nav-link">
-                                <i class=" ri-shopping-cart-2-line"></i>
-                                <span class="badge bg-success float-end"></span>
-                                <span> Pemesanan </span>
-                            </a>
-                        </li>
-                        
-                        <li class="side-nav-item">
-                            <a href="index.html" class="side-nav-link">
-                                <i class=" ri-slideshow-line"></i>
-                                <span class="badge bg-success float-end"></span>
-                                <span> Analisis dan Laporan </span>
-                            </a>
-                        </li>
 
                         <li class="side-nav-item">
                             <a href="index.html" class="side-nav-link">
@@ -519,6 +515,48 @@
                                 <span> Promo </span>
                             </a>
                         </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="index.html" class="side-nav-link">
+                                <i class="ri-settings-3-line"></i>
+                                <span class="badge bg-success float-end"></span>
+                                <span> Pengaturan </span>
+                            </a>
+                        </li>
+
+
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
+                                <i class="ri-layout-line"></i>
+                                <span class="badge bg-warning float-end">New</span>
+                                <span> Layouts </span>
+                            </a>
+                            <div class="collapse" id="sidebarLayouts">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="layouts-horizontal.html" target="_blank">Horizontal</a>
+                                    </li>
+                                    <li>
+                                        <a href="layouts-light-sidebar.html" target="_blank">Light Sidebar</a>
+                                    </li>
+                                    <li>
+                                        <a href="layouts-sm-sidebar.html" target="_blank">Small Sidebar</a>
+                                    </li>
+                                    <li>
+                                        <a href="layouts-collapsed-sidebar.html" target="_blank">Collapsed Sidebar</a>
+                                    </li>
+                                    <li>
+                                        <a href="layouts-unsticky-layout.html" target="_blank">Unsticky Layout</a>
+                                    </li>
+                                    <li>
+                                        <a href="layouts-boxed.html" target="_blank">Boxed Layout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+
 
 
                     <!--- End Sidemenu -->
