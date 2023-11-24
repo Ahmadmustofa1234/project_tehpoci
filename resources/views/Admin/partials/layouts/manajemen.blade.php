@@ -67,7 +67,7 @@
             </header>
 
             <section>
-                <a href="#" class="add-product-btn">Tambah Produk</a>
+                <a href="{{ url('/viewProduk') }}" class="add-product-btn">Tambah Produk</a>
 
                 <table>
                     <thead>
