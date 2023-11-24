@@ -35,6 +35,6 @@ class ManajemenController extends Controller
 
         $data->save();
 
-        return redirect('/addProduk')->with('success', 'Product added successfully');
+        return redirect()->back()->with('message', 'Product added successfully');
     }
 }
