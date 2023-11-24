@@ -22,7 +22,7 @@ use App\Http\Controllers\OrderController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/order', [OrderController::class, 'index'])->name('order');
-Route::get('/order/details', [OrderController::class, 'orderDetails'])->name('orderDetails');
+// Route::get('/order/details', [OrderController::class, 'orderDetails'])->name('orderDetails');
 
 Route::post('/order/details', [OrderController::class, 'orderDetails'])->name('orderDetails');
 Route::get('/order/checkout', [OrderController::class, 'payment'])->name('payment');

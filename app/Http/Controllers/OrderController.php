@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\User;
+use App\Models\OrderDetail;
 
 class OrderController extends Controller
 {
@@ -23,25 +24,10 @@ class OrderController extends Controller
         $orderDetails = [];
         $totalQuantity = 0;
         $totalAmmount = 0;
-
-        foreach ($products as $product) {
-            $quantity = $request->input('quantity' . $product->id);
-            $subTotal = $product->price * $quantity;
-            if ($quantity) {
-                $orderDetails[] = [
-                    'name' => $product->name,
-                    'price' => $product->price,
-                    'product_id' => $product->id,
-                    'quantity' => $quantity,
-                    'subtotal' => $subTotal,
-                ];
-
-                $totalQuantity += $quantity;
-                $totalAmmount += $subTotal;
-            }
-        }
+        $orderId = rand();
 
         Order::create([
+            "id" => $orderId,
             "user_id" => $user->id,
             "date" => now(),
             "status" => "unpaid",
@@ -50,7 +36,74 @@ class OrderController extends Controller
             "updated_at" => now(),
         ]);
 
-        return view("layouts.orderDetails", compact("totalQuantity", "totalAmmount", 'orderDetails'));
+        foreach ($products as $product) {
+            $quantity = $request->input('quantity' . $product->id);
+            $subTotal = $product->price * $quantity;
+            if ($quantity) {
+                $orderDetails[] = [
+                    'name' => $product->name,
+                    'price' => $product->price,
+                    'id' => $product->id,
+                    'quantity' => $quantity,
+                    'subtotal' => $subTotal,
+                ];
+
+                $totalQuantity += $quantity;
+                $totalAmmount += $subTotal;
+
+                OrderDetail::create([
+                    "order_id" => $orderId,
+                    "product_id" => $product->id,
+                    "name" => $product->name,
+                    "price" => $product->price,
+                    "quantity" => $quantity,
+                    "subtotal" => $subTotal,
+                    "created_at" => now(),
+                    "updated_at" => now(),
+                ]);
+            }
+        }
+
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = 'SB-Mid-server--n_-sMtvxjLQEtjNrAmUaXE5';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $orderId,
+                'gross_amount' => $totalAmmount,
+            ),
+            'item_details' => $orderDetails,
+            'customer_details' => array(
+                'first_name' => $user->name,
+                'last_name' => '',
+                'email' => $user->email,
+                'phone' => $user->konsumen->phone,
+                'billing_address' => [
+                    'first_name' => $user->name,
+                    'last_name' => '',
+                    'email' => $user->email,
+                    'phone' => $user->konsumen->phone,
+                    'address' => $user->konsumen->address,
+                ],
+            ),
+        );
+
+        // dd($orderDetails, $totalAmmount, $orderId, $params);
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+        return view("layouts.orderDetails", [
+            "title" => "Payment a Project",
+            "totalAmmount" => $totalAmmount,
+            "snap_token" => $snapToken,
+            "orderDetails" => $orderDetails,
+        ]);
     }
 
     public function payment(Request $request)
@@ -114,13 +167,13 @@ class OrderController extends Controller
 
     public function callback(Request $request)
     {
-        $serverKey = config('midtrans.serverKey');
-        $hashed = hash('sha152', $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+        $serverKey = config('midtrans.server_key');
+        $hashed = hash('sha512', $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
         if ($hashed == $request->signature_key) {
-            if ($request->transaction_status == 'capture') {
-                $order = Order::where('id', $request->order_id)->first();
+            if ($request->transaction_status == 'settlement' || $request->transaction_status == 'capture' || $request->transaction_status == 'success') {
+                $order = Order::find($request->order_id);
                 $order->update([
-                    'status' => 'paid',
+                    'status' => 'Paid',
                     'payment_method' => $request->payment_type,
                     'updated_at' => now(),
                 ]);
