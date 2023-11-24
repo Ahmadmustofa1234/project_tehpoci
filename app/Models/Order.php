@@ -17,6 +17,8 @@ class Order extends Model
         "date",
         "status",
         "payment_method",
+        "total_quantity",
+        "total_ammount",
         "created_at",
         "updated_at",
     ];

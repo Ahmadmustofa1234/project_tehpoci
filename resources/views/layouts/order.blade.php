@@ -9,6 +9,9 @@
 </head>
 <body>
     <div class="container">
+        <h2>
+            Pemesanan
+        </h2>
         <form action="{{route('orderDetails')}}" method="post">
             @csrf
             @foreach ($products as $product)

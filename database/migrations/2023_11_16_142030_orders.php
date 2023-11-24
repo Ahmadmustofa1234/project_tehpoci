@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->date('date')->nullable(false);
             $table->string('status', 100)->nullable(false);
             $table->string('payment_method', 255)->nullable(false);
+            $table->integer('total_quantity')->nullable(false);
+            $table->decimal('total_ammount')->nullable(false);
             $table->timestamps();
         });
     }

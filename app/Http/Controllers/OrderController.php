@@ -32,6 +32,8 @@ class OrderController extends Controller
             "date" => now(),
             "status" => "unpaid",
             "payment_method" => "-",
+            "total_quantity" => $totalQuantity,
+            "total_ammount" => $totalAmmount,
             "created_at" => now(),
             "updated_at" => now(),
         ]);
@@ -63,6 +65,12 @@ class OrderController extends Controller
                 ]);
             }
         }
+
+        Order::find($orderId)->update([
+            "total_quantity" => $totalQuantity,
+            "total_ammount" => $totalAmmount,
+            "updated_at" => now(),
+        ]);
 
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = 'SB-Mid-server--n_-sMtvxjLQEtjNrAmUaXE5';
