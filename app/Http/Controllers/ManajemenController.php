@@ -10,7 +10,8 @@ class ManajemenController extends Controller
 {
     public function index()
     {
-        return view('Admin\partials\layouts\manajemen');
+        $data = manajemenProduct::all();
+        return view('Admin\partials\layouts\manajemen', compact('data'));
     }
 
     public function viewProduct()
@@ -35,6 +36,14 @@ class ManajemenController extends Controller
 
         $data->save();
 
-        return redirect()->back()->with('message', 'Product added successfully');
+        return redirect()->back()->with('message', 'Product behasil ditambahkan');
+    }
+
+    public function delete_product($id)
+    {
+        $data = manajemenProduct::find($id);
+        $data->delete();
+
+        return redirect()->back()->with('message', 'Produk berhasil dihapus !');
     }
 }

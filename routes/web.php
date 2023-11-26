@@ -73,4 +73,5 @@ Route::match(['get', 'post'], '/addProduk', [App\Http\Controllers\ManajemenContr
 //halaman add produk
 Route::get('/viewProduk', [App\Http\Controllers\ManajemenController::class, 'viewProduct']);
 
-
+//hapus produk
+Route::get('/delete_product/{id}', [App\Http\Controllers\ManajemenController::class, 'delete_product']);

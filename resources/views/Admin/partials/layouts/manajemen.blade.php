@@ -69,31 +69,31 @@
             <section>
                 <a href="{{ url('/viewProduk') }}" class="add-product-btn">Tambah Produk</a>
 
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
+
                 <table>
-                    <thead>
+                    <tr>
+                        <td>Nama Produk</td>
+                        <td>Harga</td>
+                        <td>Stok</td>
+                        <td>Action</td>
+                    </tr>
+
+                    @foreach ($data as $data)
                         <tr>
-                            <th>ID</th>
-                            <th>Nama Produk</th>
-                            <th>Harga</th>
-                            <th>Stok</th>
-                            <th>Aksi</th>
+                            <td>{{ $data->nama_produk }}</td>
+                            <td>{{ $data->harga }}</td>
+                            <td>{{ $data->stok }}</td>
+                            <td><a onclick="return confirm ('Apakah kamu yakin ingin menghapus produk ini ?')"
+                                    class="btn btn-danger" href="{{ url('delete_product', $data->id) }}">Hapus</a></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Data produk akan ditampilkan di sini -->
-                        <tr>
-                            <td>1</td>
-                            <td>Teh Poci Hijau</td>
-                            <td>Rp 20,000</td>
-                            <td>50</td>
-                            <td>
-                                <button>Edit</button>
-                                <button>Hapus</button>
-                            </td>
-                        </tr>
-                        <!-- Data produk lainnya -->
-                    </tbody>
+                    @endforeach
                 </table>
+
             </section>
         </div>
     </div>
