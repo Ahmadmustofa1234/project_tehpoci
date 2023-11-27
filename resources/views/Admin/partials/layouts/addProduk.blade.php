@@ -24,31 +24,32 @@
 
                 <div class="col-lg-6">
                     <div class="card">
-                        <div class="card-header">
-                            <h1 class="header-title">Tambah Produk</h1>
-                        </div>
+                        <header>
+                            <h1>Tambah Produk</h1>
+                        </header>
+
                         <div class="card-body">
                             <form action="{{ url('/addProduk') }}" method="post" class="needs-validation" novalidate>
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label" for="validationCustom01">Nama Produk</label>
                                     <input type="text" class="form-control" id="validationCustom01"
-                                        placeholder="Nama Produk" name="namaProduk" required>
+                                        placeholder="" name="namaProduk" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="validationCustom02">Harga</label>
-                                    <input type="text" class="form-control" id="validationCustom02"
-                                        placeholder="20.000,00" name="harga" required>
+                                    <input type="number" class="form-control" id="validationCustom02"
+                                        placeholder="" name="harga" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="validationCustom03">Stok</label>
-                                    <input type="text" class="form-control" id="validationCustom03" placeholder="200"
+                                    <input type="number" class="form-control" id="validationCustom03" placeholder=""
                                         name="stok" required>
                                     <div class="invalid-feedback">
                                         Please provide a valid Kuantity.

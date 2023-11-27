@@ -63,7 +63,7 @@
 
         <div class="content-page">
             <header>
-                <h1>Manajemen Produk Teh Poci - Admin</h1>
+                <h1>Manajemen Produk</h1>
             </header>
 
             <section>
