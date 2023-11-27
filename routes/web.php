@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/', function () {
+//     return view('main');
+// });
+
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/order', [OrderController::class, 'index'])->name('order');
+// Route::get('/order/details', [OrderController::class, 'orderDetails'])->name('orderDetails');
+
+Route::post('/order/details', [OrderController::class, 'orderDetails'])->name('orderDetails');
+Route::get('/order/checkout', [OrderController::class, 'payment'])->name('payment');
 //     return view('welcome');
 // });
 
