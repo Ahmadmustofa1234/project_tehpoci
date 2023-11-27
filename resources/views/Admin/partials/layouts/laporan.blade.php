@@ -104,7 +104,6 @@
                         cursor: pointer;
                     }
                 </style>
-                </head>
 
                 <body>
                     <header>

@@ -73,6 +73,14 @@
             </li>
 
             <li class="side-nav-item">
+                <a href="{{ url('/katalog') }}" class="side-nav-link">
+                    <i class="ri-book-3-line"></i>
+                    <span class="badge bg-success float-end"></span>
+                    <span> Katalog Produk </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
                 <a href="{{ route('pelanggan.index') }}" class="side-nav-link">
                     <i class="ri-contacts-book-2-line"></i>
                     <span class="badge bg-success float-end"></span>
