@@ -92,4 +92,9 @@ Route::get('/delete_product/{id}', [App\Http\Controllers\ManajemenController::cl
 Route::get('/katalog', [App\Http\Controllers\KatalogController::class, 'index']);
 
 //halaman add katalog
-Route::post('/add_katalog', [App\Http\Controllers\KatalogController::class, 'index']);
+// Route::post('/add_katalog', [App\Http\Controllers\KatalogController::class, 'index']);
+Route::match(['get', 'post'], '/add_katalog', [App\Http\Controllers\KatalogController::class, 'add_katalog']);
+
+
+
+Route::get('/get_product_info/{id}', [App\Http\Controllers\ManajemenController::class, 'getProductInfo']);

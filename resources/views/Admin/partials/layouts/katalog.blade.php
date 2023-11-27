@@ -1,5 +1,7 @@
 @include('Admin\partials\layouts\head')
 
+
+
 <body>
 
     <div class="wrapper">
@@ -22,16 +24,25 @@
                                 <header>
                                     <h1>Katalog Produk</h1>
                                 </header>
+                                @if (session()->has('message'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('message') }}
+                                    </div>
+                                @endif
                                 <div class="card-body">
-                                    <form action="{{ url('/add_katalog') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                                    <form action="{{ url('/add_katalog') }}" method="post" enctype="multipart/form-data"
+                                        class="needs-validation" novalidate>
                                         @csrf
                                         <div class="mb-3">
                                             <label class="form-label" for="validationCustom01">Title</label>
-                                            <input type="text" class="form-control" id="validationCustom01"
-                                                placeholder="" name="title" required>
-                                            <div class="valid-feedback">
-                                                Looks good!
-                                            </div>
+                                            <select class="form-control" name="title" id="productSelect">
+                                                <option value="">Pilih Produk</option>
+                                                @foreach ($data as $item)
+                                                    <option value="{{ $item->id }}" data-id="{{ $item->id }}">
+                                                        {{ $item->nama_produk }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
 
                                         <div class="mb-3">
@@ -52,26 +63,28 @@
                                             </div>
                                         </div>
 
-                                        <div class="mb-3">
-                                            <label class="form-label" for="validationCustom03">Jumlah</label>
-                                            <h2>ambil dari DB</h2>
+                                        <!-- Input tersembunyi untuk quantity dan price -->
+                                        <input type="hidden" name="quantity" id="hiddenQuantity" value="">
+                                        <input type="hidden" name="price" id="hiddenPrice" value="">
 
+                                        <div id="quantity" class="mb-3">
+                                            <label class="form-label" for="validationCustom04">Jumlah</label>
+                                            <div name="quantity" class="form-control" id="quantityValue"></div>
+                                        </div>
+
+                                        <div id="price" class="mb-3">
+                                            <label class="form-label" for="validationCustom05">Harga</label>
+                                            <div class="form-control" id="priceValue"></div>
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label" for="validationCustom03">Harga</label>
-                                            <h2>ambil dari DB</h2>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label class="form-label" for="validationCustom03">Diskon</label>
-                                            <input type="text" class="form-control" id="validationCustom03"
+                                            <label class="form-label" for="validationCustom06">Diskon</label>
+                                            <input type="number" class="form-control" id="validationCustom03"
                                                 placeholder="" name="dis_price" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid Discount.
                                             </div>
                                         </div>
-
 
                                         <button class="add-product-btn" type="submit" name="submit">Tambah</button>
                                     </form>
@@ -94,6 +107,51 @@
             </div>
         </div>
     </div>
+
+    {{-- script otomatis stok dan harga  --}}
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Event listener untuk dropdown produk
+            $('#productSelect').change(function() {
+                // Dapatkan nilai yang dipilih
+                var selectedValue = $(this).val();
+
+                // Periksa apakah nilai yang dipilih adalah "Pilih Produk"
+                if (selectedValue === '') {
+                    // Reset nilai stok dan harga
+                    $('#quantityValue').text('');
+                    $('#priceValue').text('');
+                    // Set nilai quantity dan price ke dalam input tersembunyi
+                    $('#hiddenQuantity').val('');
+                    $('#hiddenPrice').val('');
+                    return;
+                }
+
+                // Dapatkan ID produk yang dipilih
+                var selectedProductId = $(this).find(':selected').data('id');
+
+                // Kirim permintaan AJAX ke server untuk mendapatkan stok dan harga berdasarkan ID produk
+                $.ajax({
+                    url: '/get_product_info/' + selectedProductId,
+                    type: 'GET',
+                    success: function(response) {
+                        // Perbarui div jumlah dan harga dengan nilai yang diterima dari server
+                        $('#quantityValue').text(response.stok);
+                        $('#priceValue').text(response.harga);
+                        // Set nilai quantity dan price ke dalam input tersembunyi
+                        $('#hiddenQuantity').val(response.stok);
+                        $('#hiddenPrice').val(response.harga);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+
 
 
     <!-- Vendor js -->
