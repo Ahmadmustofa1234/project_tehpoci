@@ -49,6 +49,7 @@
                   window.snap.pay('{{ $snap_token }}', {
                     onSuccess: function(result){
                       /* You may add your own implementation here */
+                      window.location = '/order/invoice/{{ $orderId }}';
                       alert("payment success!"); console.log(result);
                     },
                     onPending: function(result){

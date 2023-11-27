@@ -111,6 +111,7 @@ class OrderController extends Controller
             "totalAmmount" => $totalAmmount,
             "snap_token" => $snapToken,
             "orderDetails" => $orderDetails,
+            "orderId" => $orderId,
         ]);
     }
 
@@ -187,5 +188,16 @@ class OrderController extends Controller
                 ]);
             }
         }
+    }
+
+    public function invoice($id)
+    {
+        $order = Order::find($id);
+        $orderDetails = OrderDetail::where('order_id', $id)->get();
+        return view('layouts.invoice', [
+            "title" => "Invoice",
+            "order" => $order,
+            "orderDetails" => $orderDetails,
+        ]);
     }
 }
