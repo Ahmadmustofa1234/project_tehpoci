@@ -1,5 +1,7 @@
 @include('Admin\partials\layouts\head')
 
+
+
 <style>
     .img-size {
         width: 100px;
@@ -104,6 +106,11 @@
                                 <header>
                                     <h1>Tabel Katalog</h1>
                                 </header>
+                                @if (session()->has('deleted_produk'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('deleted_produk') }}
+                                    </div>
+                                @endif
 
                                 <table>
                                     <tr>
@@ -113,6 +120,7 @@
                                         <th>Harga</th>
                                         <th>Diskon</th>
                                         <th>Gambar</th>
+                                        <th>Aksi</th>
                                     </tr>
 
                                     @foreach ($product as $item)
@@ -131,6 +139,11 @@
                                             <td>
                                                 <img class="img-size" src="/katalog/{{ $item->image }}"
                                                     alt="">
+                                            </td>
+                                            <td>
+                                                <a onclick="return confirm('Apakah kamu yakin hapus produk ?')"
+                                                    class="btn btn-danger"
+                                                    href="{{ url('delete_product', $item->id) }}">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

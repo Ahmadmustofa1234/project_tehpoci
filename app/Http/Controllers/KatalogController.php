@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\manajemenProduct;
+use App\Models\Product;
 use App\Models\ShowProduct;
 
 class KatalogController extends Controller
@@ -39,6 +40,34 @@ class KatalogController extends Controller
 
 
 
-        return redirect()->back()->with('message', 'Produk berhasil ditambah');;
+        return redirect()->back()->with('message', 'Produk berhasil ditambah');
+    }
+
+    public function delete_product($id)
+    {
+        $product = ShowProduct::find($id);
+        // Get the image file name
+        $imageName = $product->image;
+
+        $product->delete();
+
+        // Delete the image file from the directory
+        if ($imageName) {
+            $imagePath = public_path('katalog/' . $imageName);
+
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+
+        return redirect()->back()->with('deleted_produk', 'Produk berhasil dihapus !');
+    }
+
+    public function update_product($id)
+    {
+
+        $product = ShowProduct::find($id);
+
+        return view('Admin\partials\layouts\updateProduk', compact('product'));
     }
 }

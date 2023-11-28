@@ -37,7 +37,7 @@ class ManajemenController extends Controller
 
         $data->save();
 
-        return redirect()->back()->with('message', 'Product behasil ditambahkan');
+        return redirect()->back()->with('message', 'Produk behasil ditambahkan');
     }
 
     public function delete_product($id)
