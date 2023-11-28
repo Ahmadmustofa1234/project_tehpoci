@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\manajemenProduct;
+use App\Models\ShowProduct;
 
 
 class ManajemenController extends Controller
@@ -45,5 +46,15 @@ class ManajemenController extends Controller
         $data->delete();
 
         return redirect()->back()->with('message', 'Produk berhasil dihapus !');
+    }
+
+    public function getProductInfo($id)
+    {
+        $product = manajemenProduct::find($id);
+
+        return response()->json([
+            'stok' => $product->stok,
+            'harga' => $product->harga,
+        ]);
     }
 }
