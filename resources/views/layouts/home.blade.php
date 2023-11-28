@@ -53,51 +53,62 @@
             <p class="slide3-headline"> VARIAN RASA </p>
 
             <div class="product-container">
+
+                @foreach ($products as $product)
                 <div class="product">
                   <img src="{{ asset('asset-img/melati.png') }}" alt="Gambar Produk 1">
-                  <a href="#" class="buy-now-button">Buy Now</a>
+                            <h5 class="card-title">{{ $product->name }}</h5>
+                            <p class="card-text">{{ $product->price }}</p>
+                            <p class="card-text">{{ $product->description }}</p>
+                            <a href="{{ route('order') }}" class="btn btn-primary">Buy Now</a>
+                  </div>
+                @endforeach
+
+                {{-- <div class="product">
+                    <img src="{{ asset('asset-img/melati.png') }}" alt="Gambar Produk 1">
+                    <a href="#" class="buy-now-button">Buy Now</a>
                 </div>
                 <div class="product">
-                  <img src="{{ asset('asset-img/vanilla.png') }}" alt="Gambar Produk 2">
-                  <a href="#" class="buy-now-button">Buy Now</a>
+                    <img src="{{ asset('asset-img/vanilla.png') }}" alt="Gambar Produk 2">
+                    <a href="#" class="buy-now-button">Buy Now</a>
                 </div>
                 <div class="product">
-                  <img src="{{ asset('asset-img/thai.png') }}" alt="Gambar Produk 2">
-                  <a href="#" class="buy-now-button">Buy Now</a>
+                    <img src="{{ asset('asset-img/thai.png') }}" alt="Gambar Produk 2">
+                    <a href="#" class="buy-now-button">Buy Now</a>
                 </div>
                 <div class="product">
-                  <img src="{{ asset('asset-img/lemon.png') }}" alt="Gambar Produk 2">
-                  <a href="#" class="buy-now-button">Buy Now</a>
+                    <img src="{{ asset('asset-img/lemon.png') }}" alt="Gambar Produk 2">
+                    <a href="#" class="buy-now-button">Buy Now</a>
                 </div>
                 <div class="product">
-                  <img src="{{ asset('asset-img/guava.png') }}" alt="Gambar Produk 2">
-                  <a href="#" class="buy-now-button">Buy Now</a>
+                    <img src="{{ asset('asset-img/guava.png') }}" alt="Gambar Produk 2">
+                    <a href="#" class="buy-now-button">Buy Now</a>
                 </div>
                 <div class="product">
-                  <img src="{{ asset('asset-img/blackcurrant.png') }}" alt="Gambar Produk 2">
-                  <a href="#" class="buy-now-button">Buy Now</a>
+                    <img src="{{ asset('asset-img/blackcurrant.png') }}" alt="Gambar Produk 2">
+                    <a href="#" class="buy-now-button">Buy Now</a>
                 </div>
                 <div class="product">
-                  <img src="{{ asset('asset-img/leci.png') }}" alt="Gambar Produk 2">
-                  <a href="#" class="buy-now-button">Buy Now</a>
+                    <img src="{{ asset('asset-img/leci.png') }}" alt="Gambar Produk 2">
+                    <a href="#" class="buy-now-button">Buy Now</a>
                 </div>
                 <div class="product">
-                  <img src="{{ asset('asset-img/mango.png') }}" alt="Gambar Produk 2">
-                  <a href="#" class="buy-now-button">Buy Now</a>
+                    <img src="{{ asset('asset-img/mango.png') }}" alt="Gambar Produk 2">
+                    <a href="#" class="buy-now-button">Buy Now</a>
                 </div>
                 <div class="product">
-                  <img src="{{ asset('asset-img/apel.png') }}" alt="Gambar Produk 2">
-                  <a href="#" class="buy-now-button">Buy Now</a>
+                    <img src="{{ asset('asset-img/apel.png') }}" alt="Gambar Produk 2">
+                    <a href="#" class="buy-now-button">Buy Now</a>
                 </div>
                 <div class="product">
-                  <img src="{{ asset('asset-img/capucino.png') }}" alt="Gambar Produk 2">
-                  <a href="#" class="buy-now-button">Buy Now</a>
+                    <img src="{{ asset('asset-img/capucino.png') }}" alt="Gambar Produk 2">
+                    <a href="#" class="buy-now-button">Buy Now</a>
                 </div>
                 <div class="product">
-                  <img src="{{ asset('asset-img/cokelat.png') }}" alt="Gambar Produk 2">
-                  <a href="#" class="buy-now-button">Buy Now</a>
-                </div>
-              </div>
+                    <img src="{{ asset('asset-img/cokelat.png') }}" alt="Gambar Produk 2">
+                    <a href="#" class="buy-now-button">Buy Now</a> --}}
+                {{-- </div> --}}
+            </div>
         </div>
         <!-- slide 4 -->
         <div class="container4">
@@ -171,19 +182,3 @@
             </footer>
         </div>
     </div>
-<div class="home">
-        <h1 class="home-subheadline"> Atasi Dahagamu Dengan Minum Teh Poci</h1>
-        <p class="home-headline">Jangan Lupa Nikmatnya teh</p>
-    </div>
-
-    @foreach ($products as $product)
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{$product->name}}</h5>
-            <p class="card-text">{{$product->price}}</p>
-          <p class="card-text">{{$product->description}}</p>
-          <a href="{{route('order')}}" class="btn btn-primary">Buy Now</a>
-        </div>
-      </div>
-    @endforeach
