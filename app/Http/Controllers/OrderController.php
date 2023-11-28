@@ -186,6 +186,17 @@ class OrderController extends Controller
                     'payment_method' => $request->payment_type,
                     'updated_at' => now(),
                 ]);
+
+                $orderDetails = OrderDetail::where('order_id', $request->order_id)->get();
+                foreach ($orderDetails as $orderDetail) {
+                    $product = Product::find($orderDetail->product_id);
+                    if ($product) {
+                        $product->update([
+                            'quantity' => $product->quantity - $orderDetail->quantity,
+                            'updated_at' => now(),
+                        ]);
+                    }
+                }
             }
         }
     }
