@@ -12,8 +12,12 @@ class KatalogController extends Controller
     public function index()
     {
         $data = manajemenProduct::all();
-        return view('Admin\partials\layouts\katalog', compact('data'));
+        $product = ShowProduct::all();
+        $product = ShowProduct::with('manajemenProduct')->get();
+
+        return view('Admin\partials\layouts\katalog', compact('data', 'product'));
     }
+
 
     public function add_katalog(Request $request)
     {

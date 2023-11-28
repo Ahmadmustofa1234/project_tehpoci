@@ -1,5 +1,10 @@
 @include('Admin\partials\layouts\head')
 
+<style>
+    .img-size {
+        width: 100px;
+    }
+</style>
 
 
 <body>
@@ -22,7 +27,7 @@
                         <div class="col-lg-6">
                             <div class="card">
                                 <header>
-                                    <h1>Katalog Produk</h1>
+                                    <h1>Tambah Katalog Produk</h1>
                                 </header>
                                 @if (session()->has('message'))
                                     <div class="alert alert-success">
@@ -99,6 +104,40 @@
                                 <header>
                                     <h1>Tabel Katalog</h1>
                                 </header>
+
+                                <table>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Deskripsi</th>
+                                        <th>Jumlah</th>
+                                        <th>Harga</th>
+                                        <th>Diskon</th>
+                                        <th>Gambar</th>
+                                    </tr>
+
+                                    @foreach ($product as $item)
+                                        <tr>
+                                            <td>
+                                                @if ($item->manajemenProduct)
+                                                    {{ $item->manajemenProduct->nama_produk }}
+                                                @else
+                                                    Product Not Found
+                                                @endif
+                                            </td>
+                                            <td>{{ $item->description }}</td>
+                                            <td>{{ $item->quantity }}</td>
+                                            <td>{{ $item->price }}</td>
+                                            <td>{{ $item->discount_price }}</td>
+                                            <td>
+                                                <img class="img-size" src="/katalog/{{ $item->image }}"
+                                                    alt="">
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+
+
+
                             </div>
                         </div> <!-- end col 2 -->
                     </div>
