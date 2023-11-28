@@ -17,8 +17,7 @@
 
         <div class="ctas">
             <a href="#"><img src="{{ asset('asset-img/shopping-cart.png') }}" alt=""></a>
-            <a href="#"><img src="{{ asset('asset-img/search.png') }}" alt=""></a>
-            <a href="#"><img src="{{ asset('asset-img/menu.png') }}" alt=""></a>
+            <a href="#"><img src="{{ asset('asset-img/grid.png') }}" alt=""></a>
         </div>
 
     </div>

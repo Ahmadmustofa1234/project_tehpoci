@@ -5,25 +5,27 @@ body {
 /* begin navbar */
 
 nav {
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .container {
-    width: 90vw;
+    width: 100vw;
     margin: 0 auto;
 }
 
 nav .container {
+    margin-top: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f1a745;
 }
 
 nav .logo {
-    width: 15%;
+    width: 20%;
 }
 nav .menu {
-    width: 65%;
+    width: 55%;
 }
 nav .ctas {
     width: 20%;
@@ -42,7 +44,7 @@ nav .ctas {
 
 nav .ctas img {
     text-align: right;
-    margin-left: 60px;
+    margin-left: 20px;
 }
 
 .logo {
@@ -79,7 +81,9 @@ nav .ctas img {
 }
 
 .ctas a img {
-    width: 25px;
+    width: 35px;
+    margin-left: 20px;
+    display: inline-block;
 }
 
 /* end navbar */
