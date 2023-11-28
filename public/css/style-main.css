@@ -5,11 +5,11 @@ body {
 /* begin navbar */
 
 nav {
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 .container {
-    width: 100vw;
+    width: 90vw;
     margin: 0 auto;
 }
 
