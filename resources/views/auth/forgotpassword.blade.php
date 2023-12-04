@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Login</title>
+    <title>Lupa Password</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully responsive admin theme which can be used to build CRM, CMS,ERP etc." name="description" />
     <meta content="Techzaa" name="author" />
@@ -43,15 +43,6 @@
                                         </a>
                                     </div>
                                     <div class="p-4 my-auto">
-
-
-                                        {{--  --}}
-                                        @if(Session::has('danger'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ Session::get('danger') }}
-                                        </div>
-                                    @endif
-                                    
                                          {{--  --}}
             @if(Session::get('success'))
             <div class="alert alert-success" role="alert">
@@ -62,12 +53,18 @@
             @endif
                         {{--  --}}
                         {{--  --}}
-                                        <h4 class="fs-20">Login</h4>
+                                        <h4 class="fs-20">Lupa Password Anda</h4>
                                         <p class="text-muted mb-3">Masukkan Email Anda.
                                         </p>
+                                        @if(Session::has('danger'))
+    <div class="alert alert-danger" role="alert">
+        {{ Session::get('danger') }}
+    </div>
+@endif
+
 
                                         <!-- form -->
-                                        <form action="{{route('auth.login')}}" method="POST">
+                                        <form action="{{route('auth.password')}}" method="POST">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="emailaddress" class="form-label">Email Anda</label>
@@ -76,28 +73,21 @@
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                             </div>
-                                            <div class="mb-3">
-                                                <a href="{{route('auth.forgot')}}" class="text-muted float-end"><small>Lupa   Password</small></a>
-                                                <br>
-                                                 <a href="{{route('register')}}" class="text-muted float-end"><small>Buat Akun Baru</small></a>
-                                                <label for="password" class="form-label">Password</label>
-                                                <input class="form-control" type="password"  id="password"
-                                                    placeholder="Enter your password" name="password">
-                                                    @error('password')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                           
+                                            
+                                           {{--  --}}
                                             <div class="mb-0 text-start">
                                                 <button class="btn btn-soft-primary w-100" type="submit"><i
-                                                        class="ri-login-circle-fill me-1"></i> <span class="fw-bold">Log
-                                                        In</span> </button>
+                                                        class="ri-login-circle-fill me-1"></i> <span class="fw-bold">Lupa Password</span> </button>
                                             </div>
 
                                             
                                         </form>
-                                        <br>
-                                         {{-- <a class="btn btn-danger" href="{{ '/auth/redirect'}}">google</a> --}}
+                                        {{--  --}}
+                                        <div class="col-12 text-center">
+                                            <p class="text-dark-emphasis">Kembali ke manu <a href="{{route('auth.index')}}"
+                                                    class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Log In</b></a>
+                                            </p>
+                                        </div> <!-- end col -->
                                         <!-- end form-->
                                     </div>
                                 </div>
