@@ -3,7 +3,7 @@
         <div class="logo">
             <a href="#"><img src="{{ asset('asset-img/logo-poci.png') }}" alt=""></a>
             <div class="logo-item">
-                <span class="title-1"> Teh Poci </span> <br>
+                <span class="title-1">Teh Poci</span> <br>
                 <span class="title-2">Teh Indonesia</span>
             </div>
         </div>

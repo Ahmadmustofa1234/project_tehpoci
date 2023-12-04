@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Konsumen;
 
 class User extends Authenticatable
 {
@@ -52,5 +53,9 @@ class User extends Authenticatable
     }
     static public function getTokenSingle($remember_token){
         return User::where('remember_token', '=',$remember_token)->first();
+
+    public function konsumen()
+    {
+        return $this->hasOne(Konsumen::class);
     }
 }
