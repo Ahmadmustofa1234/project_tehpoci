@@ -75,11 +75,12 @@
 
                 {{-- @foreach ($products as $product)
                 <div class="product">
-                  <img src="{{ asset('asset-img/melati.png') }}" alt="Gambar Produk 1">
+                  <img src="{{ asset('asset-img/'.$product->image) }}" alt="Gambar Produk 1">
+
                             <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">{{ $product->price }}</p>
-                            <p class="card-text">{{ $product->description }}</p>
-                            <a href="{{ route('order') }}" class="btn btn-primary">Buy Now</a>
+                            <h4 class="card-text">Rp. {{ $product->price }},00</h4>
+                            <h5 class="card-text">{{ $product->description }}</h5>
+                            <a href="{{ route('order') }}" class="buy-now-button">Buy Now</a>
                   </div>
                 @endforeach --}}
 
