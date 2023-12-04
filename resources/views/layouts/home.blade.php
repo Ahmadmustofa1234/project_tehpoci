@@ -51,10 +51,29 @@
 
             <center><img src="{{ asset('asset-img/logo-poci.png') }}" alt=""></center>
             <p class="slide3-headline"> VARIAN RASA </p>
-
+            <br>
+            <br>
+            {{-- begin show product --}}
             <div class="product-container">
+                @foreach ($product as $item)
+                    <div class="product">
+                        <img src="/katalog/{{ $item->image }}" alt="Gambar Produk">
+                        <h1 class="card-title">
+                            @if ($item->manajemenProduct)
+                                {{ $item->manajemenProduct->nama_produk }}
+                            @else
+                                Product Not Found
+                            @endif
+                        </h1>
+                        <h3 class="card-text">{{ $item->description }}</h3>
+                        <p class="card-text">{{ $item->price }}</p>
+                        <p class="card-text"></p>
+                        <a href="#" class="buy-now-button">Buy Now</a>
+                    </div>
+                @endforeach
 
-                @foreach ($products as $product)
+
+                {{-- @foreach ($products as $product)
                 <div class="product">
                   <img src="{{ asset('asset-img/melati.png') }}" alt="Gambar Produk 1">
                             <h5 class="card-title">{{ $product->name }}</h5>
@@ -62,7 +81,7 @@
                             <p class="card-text">{{ $product->description }}</p>
                             <a href="{{ route('order') }}" class="btn btn-primary">Buy Now</a>
                   </div>
-                @endforeach
+                @endforeach --}}
 
                 {{-- <div class="product">
                     <img src="{{ asset('asset-img/melati.png') }}" alt="Gambar Produk 1">
