@@ -35,6 +35,7 @@ class KatalogController extends Controller
 
 
 
-        return redirect()->back()->with('message', 'Produk berhasil ditambah');;
+        return redirect()->back()->with('message', 'Produk berhasil ditambah');
+        ;
     }
 }
