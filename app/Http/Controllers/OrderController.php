@@ -8,11 +8,14 @@ use App\Models\Order;
 use App\Models\User;
 use App\Models\OrderDetail;
 
+use App\Models\manajemenProduct;
+use App\Models\ShowProduct;
+
 class OrderController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = ShowProduct::all();
         return view("layouts.order", compact("products"));
     }
 
@@ -80,6 +83,7 @@ class OrderController extends Controller
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
         \Midtrans\Config::$is3ds = true;
+
 
         $params = array(
             'transaction_details' => array(

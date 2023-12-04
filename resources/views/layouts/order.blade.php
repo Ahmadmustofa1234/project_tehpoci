@@ -22,7 +22,7 @@
                 @foreach ($products as $product)
                     <div class="col-md-3 m-3">
                         <div class="card" style="width: 18rem;">
-                            <img src="{{ asset('asset-img/' . $product->image) }}" class="card-img-top"
+                            <img src="/katalog/{{ $product->image }}" class="card-img-top"
                                 alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $product->name }}</h5>
