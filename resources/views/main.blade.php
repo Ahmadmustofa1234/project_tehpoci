@@ -16,7 +16,6 @@
     <title>Teh Poci</title>
 </head>
 
-
 <body>
     {{-- begin navbar --}}
     @include('partials/navbar')
