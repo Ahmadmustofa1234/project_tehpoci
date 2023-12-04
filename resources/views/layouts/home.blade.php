@@ -68,7 +68,7 @@
                         <h3 class="card-text">{{ $item->description }}</h3>
                         <p class="card-text">{{ $item->price }}</p>
                         <p class="card-text"></p>
-                        <a href="#" class="buy-now-button">Buy Now</a>
+                        <a href="{{ route('order') }}" class="buy-now-button">Buy Now</a>
                     </div>
                 @endforeach
 
