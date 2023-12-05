@@ -22,7 +22,7 @@ class OrderController extends Controller
     public function orderDetails(Request $request)
     {
 
-        $products = Product::all();
+        $products = ShowProduct::all();
         $user = User::find(4);
         $orderDetails = [];
         $totalQuantity = 0;
@@ -46,7 +46,7 @@ class OrderController extends Controller
             $subTotal = $product->price * $quantity;
             if ($quantity) {
                 $orderDetails[] = [
-                    'name' => $product->name,
+                    'name' => $product->manajemenProduct->nama_produk,
                     'price' => $product->price,
                     'id' => $product->id,
                     'quantity' => $quantity,
@@ -59,7 +59,7 @@ class OrderController extends Controller
                 OrderDetail::create([
                     "order_id" => $orderId,
                     "product_id" => $product->id,
-                    "name" => $product->name,
+                    "name" => $product->manajemenProduct->nama_produk,
                     "price" => $product->price,
                     "quantity" => $quantity,
                     "subtotal" => $subTotal,
@@ -106,9 +106,9 @@ class OrderController extends Controller
             ),
         );
 
-        // dd($orderDetails, $totalAmmount, $orderId, $params);
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
+        // dd($orderDetails, $totalAmmount, $orderId, $params, $totalQuantity, $snapToken);
 
         return view("layouts.orderDetails", [
             "title" => "Payment a Project",
@@ -193,12 +193,17 @@ class OrderController extends Controller
 
                 $orderDetails = OrderDetail::where('order_id', $request->order_id)->get();
                 foreach ($orderDetails as $orderDetail) {
-                    $product = Product::find($orderDetail->product_id);
+                    $product = ShowProduct::find($orderDetail->product_id); // Ganti Product dengan ShowProduct
                     if ($product) {
+                        // Pastikan bahwa kuantitas yang dikurangkan tidak melebihi 0
+                        $newQuantity = max(0, $product->quantity - $orderDetail->quantity);
+
                         $product->update([
-                            'quantity' => $product->quantity - $orderDetail->quantity,
+                            'quantity' => $newQuantity,
                             'updated_at' => now(),
                         ]);
+                    } else {
+                        throw new \Exception('Order not found');
                     }
                 }
             }

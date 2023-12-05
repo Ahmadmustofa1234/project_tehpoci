@@ -38,9 +38,9 @@ class AuthController extends Controller
             
             if(Auth::user()->email_verified_at!=null){
                 if(Auth::user()->role=='admin'){
-                    return redirect()->route('admin.index')->with('success','Halo admin','Anda berhasil login');
+                    return redirect()->route('dashboard.index')->with('success','Halo admin','Anda berhasil login');
                 }else if(Auth::user()->role=='user'){
-                    return redirect()->route('user.index')->with('success','Halo User','Anda berhasil login');
+                    return redirect()->route('home')->with('success','Halo User','Anda berhasil login');
                 }
 
                 //return('Login Sukses');
