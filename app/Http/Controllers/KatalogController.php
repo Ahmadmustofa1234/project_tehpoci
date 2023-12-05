@@ -16,7 +16,7 @@ class KatalogController extends Controller
         $product = ShowProduct::all();
         $product = ShowProduct::with('manajemenProduct')->get();
 
-        return view('Admin\partials\layouts\katalog', compact('data', 'product'));
+        return view('Admin.partials.layouts.katalog', compact('data', 'product'));
     }
 
 
@@ -68,6 +68,6 @@ class KatalogController extends Controller
 
         $product = ShowProduct::find($id);
 
-        return view('Admin\partials\layouts\updateProduk', compact('product'));
+        return view('Admin.partials.layouts.updateProduk', compact('product'));
     }
 }

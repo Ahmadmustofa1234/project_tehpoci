@@ -8,6 +8,6 @@ class LaporanController extends Controller
 {
     public function index()
     {
-        return view('Admin\partials\layouts\laporan');
+        return view('Admin.partials.layouts.laporan');
     }
 }

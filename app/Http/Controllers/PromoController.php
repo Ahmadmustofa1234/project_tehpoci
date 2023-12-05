@@ -8,6 +8,6 @@ class PromoController extends Controller
 {
     public function index()
     {
-        return view('Admin\partials\layouts\promo');
+        return view('Admin.partials.layouts.promo');
     }
 }

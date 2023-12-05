@@ -18,11 +18,11 @@
 
 <body>
     {{-- begin navbar --}}
-    @include('partials/navbar')
+    @include('partials.navbar')
     {{-- end navbar --}}
 
     {{-- begin home --}}
-    @include('layouts/home')
+    @include('layouts.home')
     {{-- end home --}}
 
 

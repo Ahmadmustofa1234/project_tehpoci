@@ -12,12 +12,12 @@ class ManajemenController extends Controller
     public function index()
     {
         $data = manajemenProduct::all();
-        return view('Admin\partials\layouts\manajemen', compact('data'));
+        return view('Admin.partials.layouts.manajemen', compact('data'));
     }
 
     public function viewProduct()
     {
-        return view('\Admin\partials\layouts\addProduk');
+        return view('Admin.partials.layouts.addProduk');
     }
 
     public function addProduct(Request $request)
