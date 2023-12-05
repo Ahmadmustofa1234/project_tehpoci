@@ -80,7 +80,7 @@ Route::get('/master', function () {
 });
 
 Route::get('/login', function () {
-    return view('auth\login');
+    return view('auth.login');
 });
 
 // Route::get('/manajemen', function () {
