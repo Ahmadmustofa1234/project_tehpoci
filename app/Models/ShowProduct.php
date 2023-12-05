@@ -11,6 +11,6 @@ class ShowProduct extends Model
 
     public function manajemenProduct()
     {
-        return $this->belongsTo(ManajemenProduct::class, 'title');
+        return $this->belongsTo(manajemenProduct::class, 'title');
     }
 }
