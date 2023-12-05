@@ -1,15 +1,15 @@
-@include('Admin\partials\layouts\head')
+@include('Admin.partials.layouts.head')
 
 <body>
 
     <div class="wrapper">
 
         {{-- navbar start --}}
-        @include('admin.partials.navbar')
+        @include('Admin.partials.navbar')
         {{-- navbar end --}}
 
         {{-- sidebar start --}}
-        @include('admin.partials.sidebar')
+        @include('Admin.partials.sidebar')
         {{-- sidebar end --}}
 
         <div class="content-page">

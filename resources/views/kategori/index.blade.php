@@ -1,4 +1,4 @@
-@extends('Admin\partials\layouts\main')
+@extends('Admin.partials.layouts.main')
 
 
 @section('manajemen-produk')
