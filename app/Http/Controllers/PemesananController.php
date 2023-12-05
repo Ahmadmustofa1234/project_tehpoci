@@ -8,6 +8,6 @@ class PemesananController extends Controller
 {
     public function index()
     {
-        return view('Admin\partials\layouts\pemesanan');
+        return view('Admin.partials.layouts.pemesanan');
     }
 }
