@@ -121,7 +121,7 @@ Route::get('/viewProduk', [App\Http\Controllers\ManajemenController::class, 'vie
 Route::get('/delete_product/{id}', [App\Http\Controllers\ManajemenController::class, 'delete_product']);
 
 //halaman katalog
-Route::get('/katalog', [App\Http\Controllers\KatalogController::class, 'index']);
+Route::get('/daftarProduk', [App\Http\Controllers\KatalogController::class, 'index']);
 
 //halaman add katalog
 // Route::post('/add_katalog', [App\Http\Controllers\KatalogController::class, 'index']);
