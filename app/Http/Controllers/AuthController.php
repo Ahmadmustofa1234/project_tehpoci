@@ -105,14 +105,14 @@ class AuthController extends Controller
         $keyCheck=User::select('verify_key')->where('verify_key',$verify_key)->exists();
         if($keyCheck){
             $user=User::where('verify_key',$verify_key)->update(['email_verified_at'=>date('Y-m-d H:i:s')]);
-            return redirect()->route('auth.index')->with('success','Verifikasi Berhasil. akun anda sudah aktif');
+           return redirect(url('/login'))->with('success','Verifikasi Berhasil. akun anda sudah aktif');
         }else{
-            return redirect()->route('auth.index')->with('danger','keys tidak valid pastikan sudah melakuakn registrasi')->withInput();
+           return redirect(url('/login'))->with('danger','keys tidak valid pastikan sudah melakuakn registrasi')->withInput();
         }
     }
     function logout(){
         Auth::logout();
-        return redirect()->route('auth.index')->with('success','Anda berhasil logout');
+       return redirect(url('/login'))->with('success','Anda berhasil logout');
     }
     public function register(){
         $title = 'Halaman Registrasi';
@@ -184,7 +184,7 @@ class AuthController extends Controller
         $user->password=Hash::make($request->password);
         $user->remember_token=Str::random(30);
         $user->save();
-        return redirect('/')->with('success', 'Password Berhasil di Ubah');
+        return redirect(url('/login'))->with('success', 'Password Berhasil di Ubah');
         
        }else{
          return redirect()->back()->with('danger', 'Konfirmasi Password tidak cocok');

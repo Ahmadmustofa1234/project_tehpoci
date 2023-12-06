@@ -25,6 +25,21 @@
     @include('layouts.home')
     {{-- end home --}}
 
+    <script>
+        document.getElementById('user-name').addEventListener('click', function() {
+    var popup = document.getElementById('popup');
+    popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+});
+
+// Close the popup if the user clicks outside of it
+document.addEventListener('mouseup', function(event) {
+    var popup = document.getElementById('popup');
+    if (event.target !== popup && !popup.contains(event.target)) {
+        popup.style.display = 'none';
+    }
+});
+
+    </script>
 
 </body>
 

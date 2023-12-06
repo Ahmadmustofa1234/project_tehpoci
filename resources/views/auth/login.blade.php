@@ -30,18 +30,11 @@
                     <div class="card overflow-hidden">
                         <div class="row g-0">
                             <div class="col-lg-6 d-none d-lg-block p-2">
-                                <img src="assets/images/auth-login.jpg" alt="" class="img-fluid rounded h-100">
+                                {{-- <img src="assets/images/auth-login.jpg" alt="" class="img-fluid rounded h-100"> --}}
                             </div>
                             <div class="col-lg-6">
                                 <div class="d-flex flex-column h-100">
-                                    <div class="auth-brand p-4">
-                                        <a href="" class="logo-light">
-                                            <img src="assets/images/logo1.png" alt="logo" height="22">
-                                        </a>
-                                        <a href="" class="logo-dark">
-                                            <img src="assets/images/logo-teh-dark.png" alt="dark logo" height="22">
-                                        </a>
-                                    </div>
+                                    
                                     <div class="p-4 my-auto">
 
 

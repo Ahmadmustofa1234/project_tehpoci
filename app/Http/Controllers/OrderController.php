@@ -23,7 +23,7 @@ class OrderController extends Controller
     {
 
         $products = ShowProduct::all();
-        $user = User::find(4);
+        $user = User::find(2);
         $orderDetails = [];
         $totalQuantity = 0;
         $totalAmmount = 0;

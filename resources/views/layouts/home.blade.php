@@ -55,22 +55,27 @@
             <br>
             {{-- begin show product --}}
             <div class="product-container">
-                @foreach ($product as $item)
-                    <div class="product">
-                        <img src="/katalog/{{ $item->image }}" alt="Gambar Produk">
-                        <h1 class="card-title">
-                            @if ($item->manajemenProduct)
-                                {{ $item->manajemenProduct->nama_produk }}
-                            @else
-                                Product Not Found
-                            @endif
-                        </h1>
-                        <h3 class="card-text">{{ $item->description }}</h3>
-                        <p class="card-text">{{ $item->price }}</p>
-                        <p class="card-text"></p>
-                        <a href="{{ route('order') }}" class="buy-now-button">Buy Now</a>
-                    </div>
-                @endforeach
+                @if (auth()->check())
+    @foreach ($product as $item)
+        <div class="product">
+            <img src="/katalog/{{ $item->image }}" alt="Gambar Produk">
+            <h1 class="card-title">
+                @if ($item->manajemenProduct)
+                    {{ $item->manajemenProduct->nama_produk }}
+                @else
+                    Product Not Found
+                @endif
+            </h1>
+            <h3 class="card-text">{{ $item->description }}</h3>
+            <p class="card-text">{{ $item->price }}</p>
+            <p class="card-text"></p>
+            <a href="{{ route('order') }}" class="buy-now-button">Buy Now</a>
+        </div>
+    @endforeach
+@else
+    <p style="color: red">Silahkan Login dulu untuk belanja!!!!.</p>
+@endif
+
 
 
                 {{-- @foreach ($products as $product)

@@ -84,7 +84,7 @@
                                         </form>
                                         {{--  --}}
                                         <div class="col-12 text-center">
-                                            <p class="text-dark-emphasis">Kembali ke manu <a href="{{route('auth.index')}}"
+                                            <p class="text-dark-emphasis">Kembali ke manu <a href="{{ url('/login') }}"
                                                     class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Log In</b></a>
                                             </p>
                                         </div> <!-- end col -->

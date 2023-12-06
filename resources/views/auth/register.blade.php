@@ -29,9 +29,7 @@
                 <div class="col-xxl-8 col-lg-10">
                     <div class="card overflow-hidden bg-opacity-25">
                         <div class="row g-0">
-                            <div class="col-lg-6 d-none d-lg-block p-2">
-                                <img src="assets/images/auth-login.jpg" alt="" class="img-fluid rounded h-100">
-                            </div>
+                           
                             <div class="col-lg-6">
                                 <div class="d-flex flex-column h-100">
                                     
@@ -110,10 +108,11 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <p class="text-dark-emphasis">Sudah punya akun? <a href="{{route('auth.index')}}"
+                    <p class="text-dark-emphasis">Sudah punya akun? <a href="{{ url('/login') }}"
                             class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Log In</b></a>
                     </p>
-                </div> <!-- end col -->
+                </div>
+                
             </div>
             <!-- end row -->
         </div>
