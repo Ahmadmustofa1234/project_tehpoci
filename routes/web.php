@@ -17,37 +17,64 @@ use App\Http\Controllers\OrderController;
 |
 */
 
+// ...
+
+// Grup route untuk pengunjung (guest)
 Route::group(['middleware' => 'guest'], function () {
+
+    // Rute untuk tampilan login
     Route::get('/login', [AuthController::class, 'index'])->name('auth.index');
+
+    // Rute untuk tampilan registrasi
     Route::get('/register', [AuthController::class, 'register'])->name('register');
-    Route::post('/create',[AuthController::class, 'create'])->name('create');
+
+    // Rute untuk proses registrasi
+    Route::post('/create', [AuthController::class, 'create'])->name('create');
+
+    // Rute untuk proses login
     Route::post('/auth', [AuthController::class, 'login'])->name('auth.login');
+
+    // Rute untuk proses logout
     Route::match(['get', 'post'], '/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/', [AuthController::class, 'index'])->name('auth.index');
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/register', [AuthController::class, 'register'])->name('register');
-    Route::post('/create',[AuthController::class, 'create'])->name('create');
-    Route::post('/auth', [AuthController::class, 'login'])->name('auth.login');
-    Route::post('/ResetPass', [AuthController::class, 'ResetPass'])->name('auth.ResetPass');
-    Route::get('/verify/{verify_key}', [AuthController::class, 'verify']);
-   
-    // 
-    
-    Route::get('/auth/redirect', [LoginController::class, 'redirectToProvider'])->name("auth.redirect");
-    Route::get('/auth/callback', [LoginController::class, 'handleProviderCallback'])->name("auth.callback");
 
+    // Rute untuk tampilan utama (mungkin Anda ingin memindahkan ini ke luar grup)
+    Route::get('/', [AuthController::class, 'index'])->name('auth.index');
 
-    // Rute Lupa Password
-    Route::get('/forgot', [AuthController::class, 'forgot'])->name('auth.forgot');
-    Route::post('/sendResetLinkEmail', [AuthController::class, 'sendResetLinkEmail'])->name('auth.password');
-    Route::get('/reset/{token}', [AuthController::class, 'Reset'])->name('reset');
-    Route::post('/reset/{token}', [AuthController::class, 'resetPassword'])->name('reset');
-    
-    // 
-    // 
-    
-    // 
+    // Grup route untuk sub-rute yang memerlukan middleware 'guest'
+    Route::group(['middleware' => 'guest'], function () {
+
+        // Rute untuk tampilan registrasi
+        Route::get('/register', [AuthController::class, 'register'])->name('register');
+
+        // Rute untuk proses registrasi
+        Route::post('/create', [AuthController::class, 'create'])->name('create');
+
+        // Rute untuk proses login
+        Route::post('/auth', [AuthController::class, 'login'])->name('auth.login');
+
+        // Rute untuk reset password
+        Route::post('/ResetPass', [AuthController::class, 'ResetPass'])->name('auth.ResetPass');
+
+        // Rute untuk verifikasi email
+        Route::get('/verify/{verify_key}', [AuthController::class, 'verify']);
+
+        // Rute untuk autentikasi pihak ketiga
+        Route::get('/auth/redirect', [LoginController::class, 'redirectToProvider'])->name('auth.redirect');
+        Route::get('/auth/callback', [LoginController::class, 'handleProviderCallback'])->name('auth.callback');
+
+        // Rute untuk lupa password
+        Route::get('/forgot', [AuthController::class, 'forgot'])->name('auth.forgot');
+        Route::post('/sendResetLinkEmail', [AuthController::class, 'sendResetLinkEmail'])->name('auth.password');
+        Route::get('/reset/{token}', [AuthController::class, 'Reset'])->name('reset');
+        Route::post('/reset/{token}', [AuthController::class, 'resetPassword'])->name('reset');
+    });
+
+    // ...
+
 });
+
+// ...
+
 
 
 
