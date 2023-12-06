@@ -46,12 +46,11 @@ class AuthController extends Controller
                 //return('Login Sukses');
             }else{
                 Auth::logout();
-               return redirect(url('/login'))->with('danger','Akun Anda Belum Aktif');
+                return redirect()->route('auth.index')->with('danger','Akun Anda Belum Aktif');
             }
 
         }else{
-            return redirect(url('/login'))->with('danger', 'Email atau kata sandi salah');
-
+            return redirect()->route('auth.index')->with('danger','Email atau kandi salah');
         }
     }
     public function create(Request $request){
@@ -100,7 +99,7 @@ class AuthController extends Controller
         ],
        ];
        Mail::to($inforegister['email'])->send(new AuthMail($details));
-      return redirect(url('/login'))->with('success','Link verifikasi telah dikirim ke email yang anda logikan');
+       return redirect()->route('auth.index')->with('success','Link verifikasi telah dikirim ke email yang anda logikan');
     }
     function verify($verify_key){
         $keyCheck=User::select('verify_key')->where('verify_key',$verify_key)->exists();

@@ -23,6 +23,11 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/create',[AuthController::class, 'create'])->name('create');
     Route::post('/auth', [AuthController::class, 'login'])->name('auth.login');
     Route::match(['get', 'post'], '/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/', [AuthController::class, 'index'])->name('auth.index');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/create',[AuthController::class, 'create'])->name('create');
+    Route::post('/auth', [AuthController::class, 'login'])->name('auth.login');
     Route::post('/ResetPass', [AuthController::class, 'ResetPass'])->name('auth.ResetPass');
     Route::get('/verify/{verify_key}', [AuthController::class, 'verify']);
    
